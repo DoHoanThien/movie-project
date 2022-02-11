@@ -1,0 +1,13 @@
+.slick-prev:before,
+.slick-next:before {
+    font-size: 3rem !important;
+}
+
+.width-film-item {
+    width: 100% !important;
+}
+
+.film-slick-slider {
+    padding-left: 2rem !important;
+    padding-right: 0.5rem !important;
+}
