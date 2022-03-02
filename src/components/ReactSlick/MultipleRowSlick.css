@@ -7,7 +7,6 @@
     width: 100% !important;
 }
 
-.film-slick-slider {
-    padding-left: 2rem !important;
-    padding-right: 0.5rem !important;
+.slick-dots li button:before {
+    display: none !important;
 }

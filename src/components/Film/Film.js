@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Film(props) {
     const filmStyle = {
@@ -19,23 +20,27 @@ export default function Film(props) {
                 }}
             ></div>
             <div className="px-3">
-                <h1 className="title-font sm:text-2xl text-xl font-medium text-white mb-3 h-6">
-                    {props.film.tenPhim.length > 30 ? (
-                        <span>{props.film.tenPhim.slice(0, 30)}...</span>
+                <p className="title-font sm:text-2xl text-xl font-medium text-white mb-3 h-6">
+                    {props.film.tenPhim.length > 15 ? (
+                        <span>{props.film.tenPhim.slice(0, 15)}...</span>
                     ) : (
                         <span>{props.film.tenPhim}</span>
                     )}
-                </h1>
+                </p>
                 <p className="leading-relaxed mb-3 h-14">
-                    {props.film.moTa.length > 100 ? (
-                        <span>{props.film.moTa.slice(0, 100)}...</span>
+                    {props.film.moTa.length > 75 ? (
+                        <span>{props.film.moTa.slice(0, 75)}...</span>
                     ) : (
                         <span>{props.film.moTa}</span>
                     )}
                 </p>
-                <button className="mr-3 cursor-pointer transition-all inline-flex items-center bg-amber-600 border-0 py-1 px-3 focus:outline-none hover:bg-amber-500 rounded text-base text-black mt-3">
+                <NavLink
+                    style={{ color: "black" }}
+                    to={`/detail/${props.film.maPhim}`}
+                    className="mr-3 cursor-pointer transition-all inline-flex items-center bg-amber-600 border-0 py-1 px-3 focus:outline-none hover:bg-amber-500 rounded text-base mt-3"
+                >
                     Đặt Vé
-                </button>
+                </NavLink>
                 <div className="text-center leading-none flex justify-center absolute bottom-0 left-0 w-full py-4">
                     <span className="text-gray-400 mr-3 inline-flex items-center leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                         <svg

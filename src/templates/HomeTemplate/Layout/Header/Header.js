@@ -1,11 +1,76 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
+import { history } from "../../../../App";
+import { useSelector } from "react-redux";
+import _ from "lodash";
+import { LogoutOutlined } from "@ant-design/icons";
+import { TOKEN, USER_LOGIN } from "../../../../util/setting/config";
 
 export default function Header(props) {
+    const { thongTinDangNhap } = useSelector(
+        (state) => state.QuanLyNguoiDungReducer
+    );
+
+    const renderLogin = () => {
+        if (_.isEmpty(thongTinDangNhap)) {
+            return (
+                <div className="flex">
+                    <button
+                        onClick={() => {
+                            history.push("/login");
+                        }}
+                        className="mr-3 transition-all inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base text-black mt-4 md:mt-0"
+                    >
+                        Sign in
+                    </button>
+                    <button
+                        onClick={() => {
+                            history.push("/register");
+                        }}
+                        className="mr-3 transition-all inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base text-black mt-4 md:mt-0"
+                    >
+                        Sign up
+                    </button>
+                </div>
+            );
+        } else {
+            return (
+                <Fragment>
+                    <NavLink
+                        className="mr-2 font-medium hover:text-indigo-300"
+                        to="/"
+                    >
+                        <NavLink
+                            to="/admin"
+                            className="text-indigo-500 hover:text-indigo-300 transition-all duration-200"
+                        >
+                            {thongTinDangNhap.hoTen}
+                        </NavLink>
+                    </NavLink>
+                    <LogoutOutlined
+                        onClick={() => {
+                            localStorage.removeItem(USER_LOGIN);
+                            localStorage.removeItem(TOKEN);
+                            window.location.reload();
+                        }}
+                        style={{
+                            color: "rgb(190 18 60)",
+                            fontWeight: "bold",
+                            cursor: "pointer",
+                        }}
+                    />
+                </Fragment>
+            );
+        }
+    };
+
     return (
         <header className="text-white body-font fixed z-10 w-full bg-slate-800/50">
             <div className="mx-auto flex flex-wrap px-5 py-3 flex-col md:flex-row items-center">
-                <a className="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <NavLink
+                    to="/"
+                    className="flex title-font font-medium items-center text-white hover:text-indigo-500 mb-4 md:mb-0"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -18,22 +83,31 @@ export default function Header(props) {
                     >
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
-                    <span className="ml-3 text-xl">Movie</span>
-                </a>
+                    <span className="ml-3 text-xl hover:text-indigo-500">
+                        Movie
+                    </span>
+                </NavLink>
                 <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
-                    <NavLink to="/home" className="mr-5 hover:text-gray-900">
+                    <NavLink
+                        to="/home"
+                        className="mr-5 text-white hover:text-indigo-500"
+                    >
                         Home
                     </NavLink>
-                    <NavLink to="/contact" className="mr-5 hover:text-gray-900">
+                    <NavLink
+                        to="/contact"
+                        className="mr-5 text-white hover:text-indigo-500"
+                    >
                         Contact
                     </NavLink>
-                    <NavLink to="/news" className="mr-5 hover:text-gray-900">
+                    <NavLink
+                        to="/news"
+                        className="mr-5 text-white hover:text-indigo-500"
+                    >
                         New
                     </NavLink>
                 </nav>
-                <button className="mr-3 transition-all inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base text-black mt-4 md:mt-0">
-                    Sign in
-                </button>
+                {renderLogin()}
             </div>
         </header>
     );

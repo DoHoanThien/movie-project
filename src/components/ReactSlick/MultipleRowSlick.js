@@ -1,18 +1,54 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import Slider from "react-slick";
+import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimAction";
+import {
+    SET_DANH_SACH_PHIM,
+    SET_PHIM_DANG_CHIEU,
+    SET_PHIM_SAP_CHIEU,
+} from "../../redux/types/QuanLyPhimTypes";
 import Film from "../Film/Film";
 import "./MultipleRowSlick.css";
 
 export default function MultipleRowSlick(props) {
+    const dispatch = useDispatch();
+
     const settings = {
-        className: "center",
-        centerMode: true,
         infinite: true,
         centerPadding: "0",
-        slidesToShow: 3,
+        slidesToShow: 4,
         speed: 500,
         rows: 1,
         slidesPerRow: 2,
+        arrows: false,
+        // autoplay: true,
+        slidesToScroll: 4,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2,
+                },
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
 
     const renderFilms = () =>
@@ -24,14 +60,43 @@ export default function MultipleRowSlick(props) {
 
     return (
         <div>
-            <h2 className="text-white text-5xl m-0">Danh Sách Phim</h2>
-            <Slider {...settings}>
-                {renderFilms()}
-                {renderFilms()}
-                {renderFilms()}
-                {renderFilms()}
-                {renderFilms()}
-            </Slider>
+            <div className="mx-2">
+                <button
+                    onClick={() => {
+                        dispatch(layDanhSachPhimAction());
+                    }}
+                    type="button"
+                    className="px-5 border-r-2 border-black py-1 font-semibold rounded-l-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                >
+                    Danh Sách Phim
+                </button>
+                <button
+                    onClick={() => {
+                        dispatch({
+                            type: SET_PHIM_DANG_CHIEU,
+                            dangChieu: true,
+                        });
+                    }}
+                    type="button"
+                    className="px-5 border-r-2 border-black py-1 font-semibold bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                >
+                    Phim Đang Chiếu
+                </button>
+                <button
+                    onClick={() => {
+                        dispatch({
+                            type: SET_PHIM_SAP_CHIEU,
+                            sapChieu: true,
+                        });
+                    }}
+                    type="button"
+                    className="px-8 py-1 font-semibold rounded-r-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                >
+                    Phim Sắp Chiếu
+                </button>
+            </div>
+
+            <Slider {...settings}>{renderFilms()}</Slider>
         </div>
     );
 }
