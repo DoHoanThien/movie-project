@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import Slider from "react-slick";
 import { layDanhSachPhimAction } from "../../redux/actions/QuanLyPhimAction";
 import {
-    SET_DANH_SACH_PHIM,
     SET_PHIM_DANG_CHIEU,
     SET_PHIM_SAP_CHIEU,
 } from "../../redux/types/QuanLyPhimTypes";
@@ -17,11 +16,10 @@ export default function MultipleRowSlick(props) {
         infinite: true,
         centerPadding: "0",
         slidesToShow: 4,
-        speed: 500,
-        rows: 1,
         slidesPerRow: 2,
+        speed: 500,
         arrows: false,
-        // autoplay: true,
+        autoplay: true,
         slidesToScroll: 4,
         responsive: [
             {
@@ -29,8 +27,6 @@ export default function MultipleRowSlick(props) {
                 settings: {
                     slidesToShow: 3,
                     slidesToScroll: 3,
-                    infinite: true,
-                    dots: true,
                 },
             },
             {
@@ -38,14 +34,14 @@ export default function MultipleRowSlick(props) {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
-                    initialSlide: 2,
                 },
             },
             {
-                breakpoint: 480,
+                breakpoint: 576,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    slidesPerRow: 1,
                 },
             },
         ],

@@ -89,19 +89,19 @@ export default function Header(props) {
                 </NavLink>
                 <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
                     <NavLink
-                        to="/home"
+                        to="/"
                         className="mr-5 text-white hover:text-indigo-500"
                     >
                         Home
                     </NavLink>
                     <NavLink
-                        to="/contact"
+                        to="/"
                         className="mr-5 text-white hover:text-indigo-500"
                     >
                         Contact
                     </NavLink>
                     <NavLink
-                        to="/news"
+                        to="/"
                         className="mr-5 text-white hover:text-indigo-500"
                     >
                         New

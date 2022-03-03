@@ -23,7 +23,10 @@ export default function Login(props) {
             className="lg:w-1/2 xl:max-w-screen-sm bg-slate-800 h-screen shadow-xl shadow-slate-900/80"
         >
             <div className="py-12 flex justify-center lg:justify-start lg:px-12">
-                <div className="cursor-pointer flex items-center">
+                <NavLink
+                    to="/home"
+                    className="cursor-pointer flex items-center"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -39,7 +42,7 @@ export default function Login(props) {
                     <div className="text-3xl text-white tracking-wide ml-2 font-semibold">
                         Movie
                     </div>
-                </div>
+                </NavLink>
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-5xl text-indigo-700 font-display font-semibold lg:text-left xl:text-5xl after:xl:text-bold">

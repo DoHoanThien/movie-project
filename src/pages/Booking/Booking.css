@@ -29,3 +29,84 @@
     background-color: forestgreen;
 }
 
+@media screen and (min-width: 500px) {
+    .ghe {
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        font-size: 12px;
+        margin: 5px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .ghe {
+        width: 25px;
+        height: 25px;
+        border-radius: 2px;
+        font-size: 12px;
+        margin: 5px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .ghe {
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin: 7px;
+    }
+}
+
+/* @media screen and (min-width: 1023.95px) {
+    .ghe {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin: 10px;
+    }
+} */
+
+@media screen and (min-width: 1024px) {
+    .ghe {
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        font-size: 12px;
+        margin: 5px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .ghe {
+        width: 25px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 15px;
+        margin: 5px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .ghe {
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        border-radius: 5px;
+        margin: 7px;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .ghe {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border-radius: 5px;
+        margin: 10px;
+        align-items: center;
+    }
+}

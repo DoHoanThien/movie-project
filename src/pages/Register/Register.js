@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { quanLyDangKyAction } from "../../redux/actions/QuanLyNguoiDungAction";
 import * as Yup from "yup";
 import { MA_NHOM } from "../../util/setting/config";
+import { history } from "../../App";
 
 export default function Register() {
     const dispatch = useDispatch();
@@ -56,7 +57,10 @@ export default function Register() {
             className="lg:w-1/2 xl:max-w-screen-sm bg-slate-800 h-screen shadow-xl shadow-slate-900/80"
         >
             <div className="py-12 flex justify-center lg:justify-start lg:px-12">
-                <div className="cursor-pointer flex items-center">
+                <NavLink
+                    to="/home"
+                    className="cursor-pointer flex items-center"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -72,7 +76,7 @@ export default function Register() {
                     <div className="text-3xl text-white tracking-wide ml-2 font-semibold">
                         Movie
                     </div>
-                </div>
+                </NavLink>
             </div>
             <div className="mt-2 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-2 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-5xl text-indigo-700 font-display font-semibold lg:text-left xl:text-5xl after:xl:text-bold">
@@ -90,11 +94,11 @@ export default function Register() {
                             className="w-full text-lg py-2 border-b text-teal-50 border-gray-300 focus:outline-none focus:border-orange-800 autofill:bg-slate-800 bg-slate-800"
                             placeholder="Nhập họ tên"
                         />
-                        {formik.errors.hoTen && (
+                        {formik.errors.hoTen && formik.touched.hoTen ? (
                             <p className="text-orange-300">
                                 {formik.errors.hoTen}
                             </p>
-                        )}
+                        ) : null}
                     </div>
                     <div>
                         <div className="text-sm mt-7 font-bold text-gray-700 tracking-wide">
@@ -107,11 +111,11 @@ export default function Register() {
                             className="w-full text-lg py-2 border-b text-teal-50 border-gray-300 focus:outline-none focus:border-orange-800 bg-slate-800"
                             placeholder="Nhập tài khoản"
                         />
-                        {formik.errors.taiKhoan && (
+                        {formik.errors.taiKhoan && formik.touched.taiKhoan ? (
                             <p className="text-orange-300">
                                 {formik.errors.taiKhoan}
                             </p>
-                        )}
+                        ) : null}
                     </div>
                     <div>
                         <div className="text-sm mt-7 font-bold text-gray-700 tracking-wide">
@@ -125,11 +129,11 @@ export default function Register() {
                             className="w-full text-lg py-2 border-b text-teal-50 border-gray-300 focus:outline-none focus:border-orange-800 bg-slate-800"
                             placeholder="Nhập mật khẩu"
                         />
-                        {formik.errors.matKhau && (
+                        {formik.errors.matKhau && formik.touched.matKhau ? (
                             <p className="text-orange-300">
                                 {formik.errors.matKhau}
                             </p>
-                        )}
+                        ) : null}
                     </div>
                     <div className="grid grid-cols-2 gap-2">
                         <div>
@@ -143,11 +147,11 @@ export default function Register() {
                                 className="w-full text-lg py-2 border-b text-teal-50 border-gray-300 focus:outline-none focus:border-orange-800 bg-slate-800"
                                 placeholder="Nhập e-mail"
                             />
-                            {formik.errors.email && (
+                            {formik.errors.email && formik.touched.email ? (
                                 <p className="text-orange-300">
                                     {formik.errors.email}
                                 </p>
-                            )}
+                            ) : null}
                         </div>
                         <div>
                             <div className="text-sm mt-7 font-bold text-gray-700 tracking-wide">
@@ -160,11 +164,11 @@ export default function Register() {
                                 className="w-full text-lg py-2 border-b text-teal-50 border-gray-300 focus:outline-none focus:border-orange-800 bg-slate-800"
                                 placeholder="Nhập số điện thoại"
                             />
-                            {formik.errors.soDt && (
+                            {formik.errors.soDt && formik.touched.soDt ? (
                                 <p className="text-orange-300">
                                     {formik.errors.soDt}
                                 </p>
-                            )}
+                            ) : null}
                         </div>
                     </div>
                     <div className="mt-10">

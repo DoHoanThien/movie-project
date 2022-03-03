@@ -1,11 +1,9 @@
-import React, { Suspense } from "react";
+import React from "react";
 import "./App.css";
 import { createBrowserHistory } from "history";
-import { Route, Router, Switch } from "react-router-dom";
+import { Router, Switch } from "react-router-dom";
 import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
 import Home from "./pages/Home/Home";
-import Contact from "./pages/Contact/Contact";
-import News from "./pages/News/News";
 import Detail from "./pages/Detail/Detail";
 import Booking from "./pages/Booking/Booking";
 import Login from "./pages/Login/Login";
@@ -31,8 +29,8 @@ function App() {
             <Switch>
                 <HomeTemplate path="/" exact Component={Home} />
                 <HomeTemplate path="/home" exact Component={Home} />
-                <HomeTemplate path="/contact" exact Component={Contact} />
-                <HomeTemplate path="/news" exact Component={News} />
+                {/* <HomeTemplate path="/contact" exact Component={Contact} />
+                <HomeTemplate path="/news" exact Component={News} /> */}
                 <HomeTemplate path="/detail/:id" exact Component={Detail} />
                 <UserTemplate path="/login" exact Component={Login} />
                 <UserTemplate path="/register" exact Component={Register} />

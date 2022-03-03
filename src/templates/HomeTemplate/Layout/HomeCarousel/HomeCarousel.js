@@ -44,5 +44,5 @@ export default function HomeCarousel(props) {
         dispatch(action);
     }, []);
 
-    return <Carousel effect="fade">{renderCarousel()}</Carousel>;
+    return <Carousel autoplay effect="fade">{renderCarousel()}</Carousel>;
 }
