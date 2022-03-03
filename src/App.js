@@ -24,7 +24,7 @@ import AddDashboard from "./pages/Admin/Dashboard/AddDashboard";
 export const history = createBrowserHistory();
 function App() {
     return (
-        <Router history={history}>
+        <Router history={history} basename={window.location.pathname || ""}>
             <Loading />
             <Switch>
                 <HomeTemplate path="/" exact Component={Home} />
