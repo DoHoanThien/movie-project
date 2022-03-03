@@ -29,8 +29,6 @@ function App() {
             <Switch>
                 <HomeTemplate path="/" exact Component={Home} />
                 <HomeTemplate path="/home" exact Component={Home} />
-                {/* <HomeTemplate path="/contact" exact Component={Contact} />
-                <HomeTemplate path="/news" exact Component={News} /> */}
                 <HomeTemplate path="/detail/:id" exact Component={Detail} />
                 <UserTemplate path="/login" exact Component={Login} />
                 <UserTemplate path="/register" exact Component={Register} />

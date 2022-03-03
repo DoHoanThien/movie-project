@@ -62,7 +62,7 @@ export default function MultipleRowSlick(props) {
                         dispatch(layDanhSachPhimAction());
                     }}
                     type="button"
-                    className="px-5 border-r-2 border-black py-1 font-semibold rounded-l-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                    className="px-1 sm:px-5 border-r-2 border-black py-1 font-semibold rounded-l-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
                 >
                     Danh Sách Phim
                 </button>
@@ -74,7 +74,7 @@ export default function MultipleRowSlick(props) {
                         });
                     }}
                     type="button"
-                    className="px-5 border-r-2 border-black py-1 font-semibold bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                    className="px-1 sm:px-5 border-r-2 border-black py-1 font-semibold bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
                 >
                     Phim Đang Chiếu
                 </button>
@@ -86,7 +86,7 @@ export default function MultipleRowSlick(props) {
                         });
                     }}
                     type="button"
-                    className="px-8 py-1 font-semibold rounded-r-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
+                    className="px-1 sm:px-5 py-1 font-semibold rounded-r-lg bg-gray-600 hover:bg-gray-500 focus:bg-gray-400 transition-all text-gray-800"
                 >
                     Phim Sắp Chiếu
                 </button>

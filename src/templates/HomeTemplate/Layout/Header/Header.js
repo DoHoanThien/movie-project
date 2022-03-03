@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { history } from "../../../../App";
 import { useSelector } from "react-redux";
@@ -21,7 +21,7 @@ export default function Header(props) {
                         }}
                         className="mr-3 transition-all inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base text-black mt-4 md:mt-0"
                     >
-                        Sign in
+                        Đăng Nhập
                     </button>
                     <button
                         onClick={() => {
@@ -29,23 +29,18 @@ export default function Header(props) {
                         }}
                         className="mr-3 transition-all inline-flex items-center bg-gray-500 border-0 py-1 px-3 focus:outline-none hover:bg-gray-400 rounded text-base text-black mt-4 md:mt-0"
                     >
-                        Sign up
+                        Đăng Ký
                     </button>
                 </div>
             );
         } else {
             return (
-                <Fragment>
+                <div className="flex items-center">
                     <NavLink
-                        className="mr-2 font-medium hover:text-indigo-300"
-                        to="/"
+                        to="/admin"
+                        className="text-indigo-400 hover:text-indigo-300 transition-all duration-200 mr-2 font-medium"
                     >
-                        <NavLink
-                            to="/admin"
-                            className="text-indigo-500 hover:text-indigo-300 transition-all duration-200"
-                        >
-                            {thongTinDangNhap.hoTen}
-                        </NavLink>
+                        {thongTinDangNhap.hoTen}
                     </NavLink>
                     <LogoutOutlined
                         onClick={() => {
@@ -59,7 +54,7 @@ export default function Header(props) {
                             cursor: "pointer",
                         }}
                     />
-                </Fragment>
+                </div>
             );
         }
     };
