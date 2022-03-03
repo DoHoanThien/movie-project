@@ -11,6 +11,7 @@
     "@tsamantanis/react-glassmorphism": "^1.1.2",
     "antd": "^4.18.5",
     "axios": "^0.25.0",
+    "env-cmd": "^10.1.0",
     "formik": "^2.2.9",
     "gh-pages": "^3.2.3",
     "history": "^4.10.0",
@@ -30,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "env-cmd -f .env react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
