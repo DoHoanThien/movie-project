@@ -53,10 +53,11 @@ export const quanLyDangKyAction = (thongTinDangKy) => {
 
             if (resutl.data.statusCode === 200) {
                 alert("Đăng ký thành công");
-                history.goBack();
+                history.push("/login");
             }
         } catch (error) {
-            console.log(error);
+            console.log(error.response?.data);
+            alert(error.response?.data.content);
         }
     };
 };
